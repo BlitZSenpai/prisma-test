@@ -1,9 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = PrismaClient();
+const prisma = new PrismaClient();
 
 async function main() {
-  await prisma;
+  const user = await prisma.use;
 }
 
 main()
