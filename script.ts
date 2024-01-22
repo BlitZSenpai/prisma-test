@@ -15,7 +15,25 @@ async function main() {
     },
   });
 
+  const user2 = await prisma.user.findMany({
+    where: {
+      name: { equals: "rich dude" },
+      age: { not: "6" },
+      email: { in: ["@mail", "check"] },
+    },
+  });
+
+  const user3 = await prisma.user.findMany({
+    where: {
+      email: { contains: "@gmail.com" },
+      name: { startsWith: "r" },
+      age: { endsWith: "f" },
+    },
+  });
+
   console.log(user);
+  console.log(user2);
+  console.log(user3);
 }
 
 main()
